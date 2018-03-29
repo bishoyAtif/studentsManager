@@ -4,7 +4,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => 'Dashboard', 'as' => 'dashboard.'], function(){
+Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard', 'as' => 'dashboard.'], function(){
     /**
     * Basic Authentication
     */
