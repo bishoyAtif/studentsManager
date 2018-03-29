@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Dashboard\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\{ThrottlesLogins, RedirectsUsers};
+use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Auth;
-    
+
 class LoginController extends Controller
 {
     /*
