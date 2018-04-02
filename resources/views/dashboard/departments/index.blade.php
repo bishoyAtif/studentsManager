@@ -2,6 +2,9 @@
 
 @section('content')
   <div class="container">
+    <div class="row">
+      <button class="btn"><a href="{!! route('dashboard.departments.create') !!}">Add Department</a></button>
+    </div>
     <table id="departments-table" class="table table-striped table-bordered" style="width:100%">
       <thead>
         <tr>

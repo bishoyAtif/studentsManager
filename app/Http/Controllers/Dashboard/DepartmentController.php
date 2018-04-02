@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests\DepartmentCreateRequest;
-use App\Http\Requests\DepartmentUpdateRequest;
+use App\Http\Requests\Dashboard\Department\CreateRequest;
+use App\Http\Requests\Dashboard\Department\UpdateRequest;
 use App\Repositories\DepartmentRepository;
+use App\Entities\Department;
 use App\Http\Controllers\Controller;
 
 /**
@@ -40,4 +39,73 @@ class DepartmentController extends Controller
     {
         return view('dashboard.departments.index');
     }
+
+    /**
+     * Show the form for creating the specified resource.
+     *
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('dashboard.departments.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  DepartmentCreateRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CreateRequest $request)
+    {
+        $department = $this->departments->create($request->all());
+
+        return redirect()->route('dashboard.departments.index')->withSuccess('Department Added Successfully');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Department $department)
+    {
+        return view('dashboard.departments.edit', compact('department'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  DepartmentUpdateRequest $request
+     * @param  string            $id
+     *
+     * @return Response
+     */
+    public function update(UpdateRequest $request, $id)
+    {
+        $this->departments->update($request->all(), $id);
+
+        return redirect()->route('dashboard.departments.index')->withSuccess('Department Updated Successfully');
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $this->departments->delete($id);
+
+        return redirect()->back()->withError('Department Deleted Successfully');
+    }
+
 }
