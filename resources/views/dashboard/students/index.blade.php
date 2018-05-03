@@ -1,9 +1,13 @@
 @extends('dashboard.layouts.app')
 
+@section('title')
+  Students
+@endsection
+
 @section('content')
   <div class="container">
     <div class="row">
-      <a href="{!! route('dashboard.students.create') !!}"><i class="fas fa-plus-square"></i> Add Student</a>
+      <button type="button" href="{!! route('dashboard.students.create') !!}" class="btn btn-info btn-flat btn-addon m-b-10 m-l-5"><i class="ti-plus"></i> Add Student</button>
     </div>
     <table id="students-table" class="table table-striped table-bordered" style="width:100%">
       <thead>
@@ -12,7 +16,7 @@
           <th>avatar</th>
           <th>Name</th>
           <th>department</th>
-          <th>actions</th>
+          <th>Actions</th>
         </tr>
       </thead>
     </table>
@@ -37,12 +41,14 @@
             }
           },
           { data: "name" },
-          { data: "department_id" },
+          { data: "department" },
           {
+            sortable: null,
+            searchable: null,
             data: "actions",
             render: function(data){
               return htmlDecode(data);
-             }
+            }
           },
         ]
       } );

@@ -17,9 +17,10 @@ class DepartmentController extends Controller
     {
         return DataTables::of(Department::query())
             ->addColumn('actions', function($row){
-                $editButton = view('dashboard.layouts._editButton', ['url' => route('dashboard.departments.edit', $row->id)]);
-                $deleteButton = view('dashboard.layouts._deleteButton', ['url' => route('dashboard.departments.destroy', $row->id)]);
-                return $editButton . $deleteButton;
+                $editUrl = route('dashboard.departments.edit', $row->id);
+                $deleteUrl = route('dashboard.departments.destroy', $row->id);
+
+                return view('dashboard.layouts._formActions', compact('editUrl', 'deleteUrl'));
             })
             ->make(true);
     }

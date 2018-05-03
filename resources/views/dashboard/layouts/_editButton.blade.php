@@ -1,1 +1,1 @@
-<button class="btn btn-blue"><a href="{!! $url !!}">Edit</a></button>
+<button type="button" href="{!! $editUrl !!}" class="btn-warning"><i class="ti-pencil-alt"></i> Edit</button>

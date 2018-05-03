@@ -25,6 +25,11 @@ class Student extends Model implements Transformable
      */
     protected $fillable = ['name', 'email', 'department_id', 'avatar'];
 
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
     public function getAvatarAttribute($avatar)
     {
         return Storage::url($this->uploadsDirectory . DIRECTORY_SEPARATOR . $avatar);

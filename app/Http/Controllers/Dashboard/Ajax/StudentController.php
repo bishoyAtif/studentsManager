@@ -15,11 +15,15 @@ class StudentController extends Controller
 {
     public function index()
     {
-        return DataTables::of(Student::query())
+        return DataTables::of(Student::query()->with('department'))
             ->addColumn('actions', function($row){
-                $editButton = view('dashboard.layouts._editButton', ['url' => route('dashboard.students.edit', $row->id)]);
-                $deleteButton = view('dashboard.layouts._deleteButton', ['url' => route('dashboard.students.destroy', $row->id)]);
-                return $editButton . $deleteButton;
+                $editUrl = route('dashboard.students.edit', $row->id);
+                $deleteUrl = route('dashboard.students.destroy', $row->id);
+
+                return view('dashboard.layouts._formActions', compact('editUrl', 'deleteUrl'));
+            })
+            ->addColumn('department', function($row){
+                return $row->department->name;
             })
             ->make(true);
     }

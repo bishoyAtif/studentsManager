@@ -1,9 +1,13 @@
 @extends('dashboard.layouts.app')
 
+@section('title')
+  Departments
+@endsection
+
 @section('content')
   <div class="container">
     <div class="row">
-      <button class="btn"><a href="{!! route('dashboard.departments.create') !!}">Add Department</a></button>
+      <button type="button" href="{!! route('dashboard.departments.create') !!}" class="btn btn-info btn-flat btn-addon m-b-10 m-l-5"><i class="ti-plus"></i> Add Department</button>
     </div>
     <table id="departments-table" class="table table-striped table-bordered" style="width:100%">
       <thead>
@@ -30,6 +34,8 @@
           { data: "name" },
           { data: "description" },
           {
+            searchable: null,
+            orderable: null,
             data: "actions",
             render: function(data){
               return htmlDecode(data);
