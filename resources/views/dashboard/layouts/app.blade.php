@@ -27,7 +27,7 @@
     <div class="header">
       <nav class="navbar top-navbar navbar-expand-md navbar-light">
         <div class="navbar-header">
-          <a class="navbar-brand" href="{{ route('home') }}">
+          <a class="navbar-brand" href="{{ route('dashboard.home') }}">
             <span><img width="131" height="35" src="{{ asset('dashboard/images/text-logo.png') }}" alt="homepage" class="dark-logo" /></span>
           </a>
         </div>
@@ -59,8 +59,8 @@
           <nav class="sidebar-nav">
             <ul id="sidebarnav">
               <li class="nav-devider"></li>
-              <li><a class="has-arrow" href="#" aria-expanded="false"><span class="hide-menu">Entities<span class="label label-rouded label-primary pull-right">2</span></span></a>
-                <ul aria-expanded="false" class="collapse">
+              <li class="active"><a class="has-arrow" href="#" aria-expanded="false"><span class="hide-menu">Entities<span class="label label-rouded label-primary pull-right">2</span></span></a>
+                <ul aria-expanded="false" class="collapse in">
                   <li><a href="{{ route('dashboard.departments.index') }}">Departments</a></li>
                   <li><a href="{{ route('dashboard.students.index') }}">Students</a></li>
                 </ul>
