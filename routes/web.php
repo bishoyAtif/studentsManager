@@ -13,9 +13,11 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard', 'as' => 'dash
     $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::resource('departments', 'DepartmentController');
+    Route::resource('students', 'StudentController');
 
     Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function(){
         Route::get('departments.index', ['uses' => 'DepartmentController@index', 'as' => 'departments.index']);
+        Route::get('students.index', ['uses' => 'StudentController@index', 'as' => 'students.index']);
     });
 });
 
