@@ -109,7 +109,7 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         $student->deleteAvatar();
-        $student->delete():
+        $student->delete();
 
         return redirect()->route('dashboard.students.index')->withError('Student Deleted Successfully');
     }

@@ -56,7 +56,7 @@ class Student extends Model implements Transformable
 
     public function deleteAvatar($avatar = null)
     {
-        Storage::delete($this->avatarUrl())
+        Storage::delete($this->avatarUrl());
     }
 
     protected function avatarUrl()
