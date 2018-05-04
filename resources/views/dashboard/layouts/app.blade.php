@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon.png') }}">
-  <title>Dashboard | @yield('title')</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('dashboard/images/favicon.png') }}">
+  <title>@yield('title') | Dashboard</title>
   <link href="{{ asset('dashboard/css/lib/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('dashboard/css/helper.css') }}" rel="stylesheet">
   <link href="{{ asset('dashboard/css/style.css') }}" rel="stylesheet">
